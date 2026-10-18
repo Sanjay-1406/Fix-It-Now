@@ -1,0 +1,220 @@
+.about {
+  position: relative;
+  padding: 110px 24px;
+  background: linear-gradient(180deg, #fafbfd 0%, #ffffff 100%);
+  overflow: hidden;
+}
+
+.about__container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 70px;
+  align-items: center;
+}
+
+/* ---------- Visual (floating card) ---------- */
+.about__image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about__imageCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 1 / 1;
+  font-size: 9rem;
+  line-height: 1;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #dbeafe 0%, #ede9fe 50%, #fce7f3 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.6),
+    0 40px 80px -30px rgba(37, 99, 235, 0.35),
+    0 80px 120px -60px rgba(124, 58, 237, 0.30);
+  animation: float 5s ease-in-out infinite;
+  user-select: none;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+
+/* Verified badge floating in corner */
+.about__imageBadge {
+  position: absolute;
+  bottom: -14px;
+  right: 10%;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  background: #ffffff;
+  border: 1px solid #d1fae5;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #059669;
+  box-shadow:
+    0 12px 24px -10px rgba(5, 150, 105, 0.28),
+    0 0 0 4px rgba(16, 185, 129, 0.06);
+  animation: floatBadge 4s ease-in-out infinite;
+}
+
+@keyframes floatBadge {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+/* ---------- Content column ---------- */
+.about__content {
+  position: relative;
+}
+
+.about__badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #1d4ed8;
+  margin-bottom: 18px;
+}
+
+.about__title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.15;
+  margin: 0 0 20px;
+  letter-spacing: -0.025em;
+}
+
+.about__text {
+  font-size: 1rem;
+  color: #475569;
+  line-height: 1.75;
+  margin: 0 0 24px;
+}
+
+.about__text strong {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+/* ---------- Feature list ---------- */
+.about__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.about__list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(15, 23, 42, 0.04);
+  font-size: 0.94rem;
+  color: #334155;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.about__list li:hover {
+  background: #ffffff;
+  border-color: rgba(37, 99, 235, 0.15);
+  transform: translateX(6px);
+}
+
+/* ---------- Stats row ---------- */
+.about__stats {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.about__stat {
+  flex: 1 1 120px;
+  padding: 18px 20px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #eef1f5;
+  text-align: left;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.about__stat:hover {
+  border-color: rgba(37, 99, 235, 0.25);
+  box-shadow: 0 12px 24px -12px rgba(37, 99, 235, 0.28);
+  transform: translateY(-3px);
+}
+
+.about__stat h3 {
+  margin: 0 0 4px;
+  font-size: 1.9rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.about__stat p {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #64748b;
+  letter-spacing: 0.01em;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .about {
+    padding: 80px 20px;
+  }
+  .about__container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    text-align: center;
+  }
+  .about__imageCard {
+    max-width: 300px;
+    font-size: 7rem;
+  }
+  .about__title {
+    font-size: 1.9rem;
+  }
+  .about__list li {
+    justify-content: center;
+  }
+  .about__stats {
+    justify-content: center;
+  }
+  .about__stat {
+    text-align: center;
+  }
+}

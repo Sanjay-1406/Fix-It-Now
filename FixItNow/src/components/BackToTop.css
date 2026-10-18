@@ -1,0 +1,54 @@
+.back-to-top {
+  position: fixed;
+  bottom: calc(24px + env(safe-area-inset-bottom));
+  left: 24px;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 52px;
+  height: 52px;
+
+  /* Glassmorphism + Gradient */
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  /* Gradient border effect */
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient(#fff, #fff), linear-gradient(135deg, #2563eb, #7c3aed);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  border-radius: 50%;
+  color: #2563eb;
+  cursor: pointer;
+
+  /* Glowing Shadow */
+  box-shadow:
+    0 10px 25px -5px rgba(37, 99, 235, 0.3),
+    0 0 0 1px rgba(37, 99, 235, 0.05);
+
+  transition:
+    box-shadow 0.3s ease,
+    color 0.3s ease;
+}
+
+.back-to-top:hover {
+  box-shadow:
+    0 15px 35px -5px rgba(124, 58, 237, 0.4),
+    0 0 0 1px rgba(124, 58, 237, 0.1);
+  color: #7c3aed;
+}
+
+@media (max-width: 768px) {
+  .back-to-top {
+    bottom: calc(20px + env(safe-area-inset-bottom));
+    left: 20px;
+    width: 46px;
+    height: 46px;
+  }
+}

@@ -1,0 +1,16 @@
+.floating-cta {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 90;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(124, 58, 237, 0.45);
+  font-family: inherit;
+}

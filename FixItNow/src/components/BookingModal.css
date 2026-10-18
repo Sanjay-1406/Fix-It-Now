@@ -1,0 +1,367 @@
+/* ============================================================
+   BookingModal.css
+   ============================================================ */
+
+/* ============================================================
+   BookingModal.css — Portal + Flex-centered version
+   ============================================================ */
+
+/* Full-screen overlay — flex centers the modal reliably */
+.bm-root {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+/* Backdrop (pure backdrop, no positioning) */
+.bm__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* Modal — sits inside the flex wrapper, so no translate needed */
+.bm {
+  position: relative;
+  width: min(560px, calc(100vw - 32px));
+  max-height: min(90vh, 820px);
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 22px;
+  box-shadow:
+    0 30px 80px -20px rgba(15, 23, 42, 0.35),
+    0 0 0 1px rgba(15, 23, 42, 0.05);
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* ---------- Header ---------- */
+.bm__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 22px 22px 18px;
+  border-bottom: 1px solid #f1f5f9;
+  background: linear-gradient(180deg, #ffffff, #fafbfd);
+}
+
+.bm__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  background: linear-gradient(135deg, #dbeafe, #ede9fe);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.7),
+    0 6px 16px -8px rgba(37, 99, 235, 0.35);
+  flex-shrink: 0;
+}
+
+.bm__headText h2 {
+  margin: 0 0 2px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+.bm__headText p {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #64748b;
+}
+
+.bm__close {
+  margin-left: auto;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.04);
+  border: none;
+  cursor: pointer;
+  color: #475569;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.bm__close:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+  transform: rotate(90deg);
+}
+
+/* ---------- Body ---------- */
+.bm__body {
+  padding: 20px 22px 8px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.bm__row { display: flex; gap: 12px; }
+
+.bm__field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bm__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #475569;
+}
+
+/* ---------- Chips (priority + date) ---------- */
+.bm__chips {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.bm__chips--compact {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.bm__chip {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 10px 12px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+.bm__chip:hover {
+  border-color: rgba(37, 99, 235, 0.4);
+  transform: translateY(-1px);
+}
+
+.bm__chip.is-active {
+  border-color: #2563eb;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.06), rgba(124, 58, 237, 0.06));
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.1),
+    0 6px 16px -8px rgba(37, 99, 235, 0.35);
+}
+
+.bm__chipLabel {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.2;
+}
+.bm__chipSub {
+  font-size: 0.72rem;
+  color: #64748b;
+  line-height: 1.2;
+}
+.bm__chipPrice {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.bm__chip--sm {
+  padding: 9px 10px;
+}
+.bm__chip--sm .bm__chipLabel { font-size: 0.78rem; }
+.bm__chip--sm .bm__chipSub   { font-size: 0.68rem; }
+
+/* ---------- Address textarea ---------- */
+.bm__input {
+  width: 100%;
+  padding: 12px 14px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 0.92rem;
+  color: #0f172a;
+  resize: vertical;
+  min-height: 72px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.bm__input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.bm__helper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.78rem;
+  color: #64748b;
+}
+.bm__helper strong { color: #0f172a; }
+
+.bm__range {
+  flex: 1;
+  accent-color: #2563eb;
+}
+
+/* ---------- Coupon ---------- */
+.bm__coupon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(124, 58, 237, 0.05));
+  border: 1px dashed rgba(37, 99, 235, 0.35);
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: #334155;
+}
+.bm__coupon input {
+  accent-color: #2563eb;
+  width: 16px;
+  height: 16px;
+}
+.bm__coupon strong { color: #2563eb; }
+
+/* ---------- Bill ---------- */
+.bm__bill {
+  background: linear-gradient(180deg, #fafbfd, #ffffff);
+  border: 1px solid #eef1f5;
+  border-radius: 16px;
+  padding: 18px 18px 16px;
+}
+
+.bm__billTitle {
+  margin: 0 0 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #475569;
+}
+
+.bm__billRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 0;
+  font-size: 0.9rem;
+  color: #334155;
+}
+
+.bm__billRow--muted { color: #64748b; font-size: 0.85rem; }
+
+.bm__billRow--discount {
+  color: #059669;
+  font-weight: 600;
+}
+
+.bm__billTotal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding-top: 14px;
+  border-top: 1.5px dashed #e2e8f0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+.bm__billTotal strong {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ---------- Footer (slide button) ---------- */
+.bm__footer {
+  padding: 16px 22px 22px;
+  border-top: 1px solid #f1f5f9;
+  background: #ffffff;
+}
+
+/* ---------- Success overlay ---------- */
+.bm__success {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(6px);
+  z-index: 5;
+}
+
+.bm__successCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 78px;
+  height: 78px;
+  border-radius: 999px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #10b981, #059669);
+  box-shadow: 0 20px 40px -14px rgba(16, 185, 129, 0.5);
+}
+
+.bm__success h3 {
+  margin: 6px 0 0;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.bm__success p {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.9rem;
+  max-width: 300px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 560px) {
+  .bm__chips { grid-template-columns: 1fr 1fr; }
+  .bm__chips--compact { grid-template-columns: 1fr 1fr; }
+  .bm__body { padding: 16px 16px 6px; }
+  .bm__footer { padding: 14px 16px 18px; }
+  .bm__header { padding: 18px 16px 14px; }
+}

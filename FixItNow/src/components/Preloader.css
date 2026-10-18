@@ -1,0 +1,35 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+}
+
+.preloader__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -0.02em;
+}
+.preloader__logo svg { color: #2563eb; }
+
+.preloader__bar {
+  width: 200px;
+  height: 3px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.preloader__barFill {
+  height: 100%;
+  background: linear-gradient(90deg, #2563eb, #7c3aed, #ec4899);
+}

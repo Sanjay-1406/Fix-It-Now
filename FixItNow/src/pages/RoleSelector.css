@@ -1,0 +1,227 @@
+/* ============================================================
+   RoleSelector.css
+   ============================================================ */
+
+.roles {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px 60px;
+  background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 55%, #faf5ff 100%);
+  overflow: hidden;
+}
+
+/* ---------- Back ---------- */
+.roles__back {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px 10px 12px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  box-shadow: 0 6px 16px -8px rgba(15, 23, 42, 0.15);
+  transition: background 0.25s, color 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+.roles__back:hover {
+  background: #ffffff;
+  color: #2563eb;
+  border-color: rgba(37, 99, 235, 0.3);
+  box-shadow: 0 10px 24px -10px rgba(37, 99, 235, 0.35);
+}
+
+/* ---------- Card ---------- */
+.roles__card {
+  position: relative;
+  z-index: 2;
+  width: min(480px, 100%);
+  padding: 40px 34px 30px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 24px;
+  box-shadow:
+    0 40px 80px -30px rgba(15, 23, 42, 0.25),
+    0 0 0 1px rgba(37, 99, 235, 0.06);
+  text-align: center;
+}
+
+/* ---------- Logo ---------- */
+.roles__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+.roles__logoMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  color: #fff;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  box-shadow: 0 6px 16px -6px rgba(37, 99, 235, 0.5);
+}
+
+/* ---------- Heading ---------- */
+.roles__title {
+  margin: 0 0 6px;
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+}
+.roles__subtitle {
+  margin: 0 0 28px;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+/* ---------- Options ---------- */
+.roles__options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.roles__option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  background: #ffffff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 16px;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition:
+    border-color 0.25s,
+    box-shadow 0.25s,
+    background 0.25s;
+}
+
+.roles__option:hover {
+  border-color: rgba(37, 99, 235, 0.35);
+  box-shadow: 0 12px 28px -14px rgba(37, 99, 235, 0.35);
+}
+
+.roles__optionIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.roles__option:hover .roles__optionIcon {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+/* Customer accent */
+.roles__option--blue .roles__optionIcon {
+  color: #2563eb;
+  background: linear-gradient(135deg, #dbeafe, #e0e7ff);
+}
+
+/* Provider accent */
+.roles__option--purple .roles__optionIcon {
+  color: #7c3aed;
+  background: linear-gradient(135deg, #ede9fe, #fce7f3);
+}
+
+.roles__optionText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.roles__optionLabel {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.005em;
+}
+
+.roles__optionTag {
+  font-size: 0.82rem;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+.roles__optionArrow {
+  flex-shrink: 0;
+  color: #94a3b8;
+  transition: color 0.25s, transform 0.25s;
+}
+.roles__option:hover .roles__optionArrow {
+  color: #2563eb;
+  transform: translateX(3px);
+}
+
+/* ---------- Footer ---------- */
+.roles__footer {
+  margin: 24px 0 0;
+  font-size: 0.88rem;
+  color: #64748b;
+}
+
+.roles__switch {
+  background: transparent;
+  border: none;
+  color: #2563eb;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-decoration-color: rgba(37, 99, 235, 0.35);
+  text-underline-offset: 3px;
+  transition: color 0.2s, text-decoration-color 0.2s;
+}
+.roles__switch:hover {
+  color: #1d4ed8;
+  text-decoration-color: #1d4ed8;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+  .roles { padding: 88px 16px 40px; }
+  .roles__back {
+    top: 16px;
+    left: 16px;
+    padding: 8px 14px 8px 10px;
+    font-size: 0.85rem;
+  }
+  .roles__card { padding: 32px 22px 24px; }
+  .roles__title { font-size: 1.3rem; }
+}

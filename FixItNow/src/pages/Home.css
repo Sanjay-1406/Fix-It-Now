@@ -1,0 +1,20 @@
+.services {
+  padding: 80px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.services__title { font-size: 2.2rem; font-weight: 800; color: #111827; margin: 0 0 10px; }
+.services__subtitle { color: #6b7280; margin-bottom: 48px; font-size: 1.05rem; }
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 800px) {
+  .services { padding: 60px 20px; }
+  .services__title { font-size: 1.8rem; }
+}
